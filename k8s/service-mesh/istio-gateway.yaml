@@ -1,0 +1,55 @@
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: portfolio-gateway
+  namespace: default
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - "*"
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: portfolio
+  namespace: default
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - portfolio-gateway
+  http:
+    - match:
+        - uri:
+            prefix: "/api/portfolio"
+      route:
+        - destination:
+            host: portfolio-backend-service
+            port:
+              number: 80
+---
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: resume
+  namespace: default
+spec:
+  hosts:
+    - "*"
+  gateways:
+    - portfolio-gateway
+  http:
+    - match:
+        - uri:
+            prefix: "/api/resume"
+      route:
+        - destination:
+            host: resume-backend-service
+            port:
+              number: 80

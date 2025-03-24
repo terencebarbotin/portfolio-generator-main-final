@@ -1,0 +1,46 @@
+@if (isLoaded()) {
+<div class="portfolio-container">
+  <app-portfolio-header
+    [resumeRoute]="resumeRoute"
+    [portfolioData]="portfolioData"
+  ></app-portfolio-header>
+
+  <main class="portfolio-content">
+    <section class="hero-section">
+      <h1 class="name">{{ portfolioData.name }}</h1>
+      <h2 class="job-role">{{ portfolioData.jobRole }}</h2>
+      <p class="bio">{{ portfolioData.bio }}</p>
+    </section>
+
+    <section class="projects-section">
+      <h3 class="section-title">Projects</h3>
+      <div class="cards-grid">
+        @for (project of portfolioData.experiences; track $index) { @if
+        (project.isProject) {
+        <app-card
+          [title]="project.title"
+          [description]="project.description"
+          [skills]="project.skills"
+          [type]="'project'"
+        ></app-card>
+        } }
+      </div>
+    </section>
+
+    <section class="experience-section">
+      <h3 class="section-title">Experiences</h3>
+      <div class="cards-grid">
+        @for (experience of portfolioData.experiences; track $index) { @if
+        (!experience.isProject) {
+        <app-card
+          [title]="experience.title"
+          [description]="experience.description"
+          [skills]="experience.skills"
+          [type]="'experience'"
+        ></app-card>
+        } }
+      </div>
+    </section>
+  </main>
+</div>
+}

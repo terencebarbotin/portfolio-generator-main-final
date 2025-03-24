@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>{{name}} - Portfolio</title>
+    <link rel="stylesheet" href="default.css"/>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <aside class="sidebar">
+        <header class="profile-header">
+          <h1 class="name">{{name}}</h1>
+          <h2 class="job-role">{{jobRole}}</h2>
+        </header>
+
+        <section class="contact-section">
+          <h3>Contact</h3>
+          <ul class="contact-list">
+            <li>
+              <a href="mailto:{{email}}" class="contact-link">{{email}}</a>
+            </li>
+            <li>
+              <a href="{{github}}" class="contact-link">{{github}}</a>
+            </li>
+            <li>
+              <a
+                href="{{linkedin}}"
+                class="contact-link">{{linkedin}}</a>
+            </li>
+          </ul>
+        </section>
+
+        <section class="skills-section">
+          <h3>Skills</h3>
+          <ul class="skill-tags">
+            {{#each skills}}
+            <li class="skill-tag">{{this}}</li>
+            {{/each}}
+          </ul>
+        </section>
+      </aside>
+
+      <main class="main-content">
+        <section class="bio-section">
+          <h2 class="section-title">Profile</h2>
+          <p class="bio-text">{{bio}}</p>
+        </section>
+
+        <section class="experience-section">
+          <h2 class="section-title">Professional Experiences</h2>
+          <div class="experience-cards">
+            {{#each experiences}}
+            <article
+              class="experience-card {{#if isProject}}project-card{{/if}}"
+            >
+              <div class="card-header">
+                <h3 class="card-title">{{title}}</h3>
+                {{#if isProject}}<span class="card-type">Project</span>{{/if}}
+              </div>
+              <p class="card-description">{{description}}</p>
+              <ul class="card-skills">
+                {{#each skills}}
+                <li class="card-skill">{{this}}</li>
+                {{/each}}
+              </ul>
+            </article>
+            {{/each}}
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

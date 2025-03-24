@@ -1,0 +1,9 @@
+<nav class="steps-nav">
+  <ul>
+    @for (step of steps(); track i; let i = $index) {
+    <li [class.active]="i === activeStepIndex()" (click)="selectStep(i)">
+      {{ step }}
+    </li>
+    }
+  </ul>
+</nav>

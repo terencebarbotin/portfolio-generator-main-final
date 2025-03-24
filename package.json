@@ -1,0 +1,15 @@
+{
+    "workspaces": [
+        "frontend/*",
+        "backend-*"
+    ],
+    "scripts": {
+        "start:frontend": "cd frontend/portfolio-generator && ng serve",
+        "start:backend-portfolio": "cd backend-portfolio && npm run start",
+        "start:backend-resume": "cd backend-resume && npm run start",
+        "start:all": "npm-run-all --parallel start:frontend start:backend-portfolio start:backend-resume"
+    },
+    "devDependencies": {
+        "npm-run-all": "^4.1.5"
+    }
+}

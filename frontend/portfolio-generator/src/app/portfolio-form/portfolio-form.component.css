@@ -1,0 +1,211 @@
+body {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background: #f0f4f8;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.required-info {
+  font-style: italic;
+}
+
+.required::after {
+  color: #ff6b6b;
+  content: "*";
+}
+
+h1 {
+  text-align: center;
+  margin-top: 5vh;
+  font-size: 2.5rem;
+  color: #333;
+}
+
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at center,
+    rgba(0, 95, 144, 0.1),
+    transparent 70%
+  );
+  transform: rotate(45deg);
+  animation: pulse 10s infinite;
+  z-index: 0;
+}
+@keyframes pulse {
+  0% {
+    transform: rotate(45deg) scale(1);
+  }
+  50% {
+    transform: rotate(45deg) scale(1.05);
+  }
+  100% {
+    transform: rotate(45deg) scale(1);
+  }
+}
+
+.container > * {
+  position: relative;
+  z-index: 1;
+}
+
+.header-container {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: #fdfdfd;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-section h3 {
+  font-size: 1.8rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #e0e0e0;
+  padding-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  color: #333;
+}
+
+.form-section h3 .icon {
+  width: 32px;
+  height: 32px;
+  margin-right: 0.5rem;
+  transition: transform 0.3s ease;
+}
+.form-section h3 .icon:hover {
+  transform: rotate(20deg) scale(1.2);
+}
+
+.form-section label {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #555;
+}
+.form-section input {
+  padding: 10px;
+  margin-bottom: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.form-section input:focus {
+  border-color: #005f90;
+  box-shadow: 0 0 8px rgba(0, 95, 144, 0.3);
+  outline: none;
+}
+
+.form-section button {
+  padding: 10px 20px;
+  margin-top: 8px;
+  border: none;
+  border-radius: 8px;
+  background-color: #0073b1;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.form-section button:hover:not([disabled]) {
+  background-color: #005f90;
+  transform: translateY(-2px);
+}
+.form-section button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px;
+  border: 2px dashed #ddd;
+  border-radius: 8px;
+  background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+  margin-top: 1rem;
+}
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.card-item {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+.card-item:hover {
+  transform: scale(1.02);
+}
+.card-item app-experience-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+.card-item app-experience-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+.navigation-buttons button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: #0073b1;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.navigation-buttons button:hover:not([disabled]) {
+  background-color: #005f90;
+  transform: translateY(-2px);
+}
+.navigation-buttons button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  opacity: 0.7;
+}

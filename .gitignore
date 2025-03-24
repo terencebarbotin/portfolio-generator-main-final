@@ -1,0 +1,22 @@
+# NodeJS
+node_modules/
+
+# Environments
+.env
+
+# Backend
+tmp/
+
+# Frontend
+dist/
+build/
+
+# VS Code
+.vscode
+
+# istio
+istio-*/
+bin/
+manifests/
+samples/
+

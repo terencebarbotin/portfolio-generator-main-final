@@ -1,0 +1,79 @@
+:root {
+  --error-red: #ff4444;
+  --error-bg: #ffe6e6;
+}
+
+.toast {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: white;
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border-left: 4px solid #ff4444;
+  transform: translateX(120%);
+  animation: slideIn 0.3s forwards, fadeOut 0.3s forwards 5s;
+  max-width: 380px;
+  display: flex;
+  align-items: center;
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+.toast-content {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.icon-container {
+  background: #ffe6e6;
+  border-radius: 50%;
+  padding: 8px;
+  display: flex;
+}
+
+.error-icon {
+  color: #ff4444;
+  min-width: 24px;
+}
+
+.message h4 {
+  margin: 0 0 4px 0;
+  color: #2d2d2d;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.message p {
+  margin: 0;
+  color: #5c5c5c;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.close-btn:hover {
+  color: #666;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(120%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.toast:hover {
+  animation-play-state: paused;
+}

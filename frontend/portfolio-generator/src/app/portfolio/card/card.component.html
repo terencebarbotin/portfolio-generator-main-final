@@ -1,0 +1,14 @@
+<article class="card" [class.project-card]="type() === 'project'">
+  <div class="card-header">
+    <h4 class="card-title">{{ title() }}</h4>
+    <span class="card-type">{{
+      type() === "project" ? "Project" : "Experience"
+    }}</span>
+  </div>
+  <p class="card-description">{{ description() }}</p>
+  <div class="skills-list">
+    @for (skill of skills(); track i; let i=$index) {
+    <span class="skill-tag">{{ skill }}</span>
+    }
+  </div>
+</article>
