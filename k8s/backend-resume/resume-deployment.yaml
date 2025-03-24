@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: resume-backend
-        image: terencered/resume-service:latest
+        image: terencered/resume-service:2.0
         ports:
         - containerPort: 3001

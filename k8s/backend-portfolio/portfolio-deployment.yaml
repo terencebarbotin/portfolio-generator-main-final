@@ -18,7 +18,7 @@ spec:
           command: ['sh', '-c', "until nc -z postgres-service 5432; do echo waiting for database; sleep 2; done"]
       containers:
         - name: portfolio-backend
-          image: terencered/portfolio-service:latest
+          image: terencered/portfolio-service:3.0
           ports:
             - containerPort: 3000
           env:
